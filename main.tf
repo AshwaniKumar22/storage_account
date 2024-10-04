@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "testing-rg"{
 
 
 resource "azurerm_storage_account" "testingstrg" {
-    name = "testingstrg"
+    name = "testingstrg2020"
     location="centralindia"
     resource_group_name = "testing-rg" 
     account_tier = "Standard"
