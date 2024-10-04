@@ -1,0 +1,41 @@
+name: newterraformpipeline 
+
+pool: Default 
+
+trigger: none
+ 
+steps:
+  - task: TerraformInstaller@1
+    displayName: terraforminstall
+    inputs:
+      terraformVersion: 'latest' 
+  - task: TerraformTaskV4@4
+    displayName: terraforminit
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      backendServiceArm: 'testappsc'
+      backendAzureRmResourceGroupName: 'Pipeline-rg'
+      backendAzureRmStorageAccountName: 'pipelinestrg'
+      backendAzureRmContainerName: 'testcontainer'
+      backendAzureRmKey: 'test.terraform.tfstate'
+  
+  - task: TerraformTaskV4@4
+    displayName: terraformvalidate
+    inputs:
+      provider: 'azurerm'
+      command: 'validate' 
+  
+  - task: TerraformTaskV4@4
+    displayName: terraformplan
+    inputs:
+      provider: 'azurerm'
+      command: 'plan'
+      environmentServiceNameAzureRM: 'testappsc' 
+  
+  - task: TerraformTaskV4@4
+    displayName: terraformapply
+    inputs:
+      provider: 'azurerm'
+      command: 'apply'
+      environmentServiceNameAzureRM: 'testappsc'
