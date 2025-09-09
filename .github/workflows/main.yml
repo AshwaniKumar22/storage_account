@@ -1,0 +1,10 @@
+name: pehle_workflow
+
+on: workflow_dispatch
+
+jobs:
+  my_first_job:
+    steps:
+      - name: Display the path
+        shell: cmd
+        run: echo "hello world"
