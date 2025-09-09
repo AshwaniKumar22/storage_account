@@ -5,7 +5,7 @@ on:
 
 jobs:
   my_first_job:
-    runs_on: apna_laptop
+    runs_on: self-hosted
     steps:
       - name: Display the path
         run: echo "Hello World"
