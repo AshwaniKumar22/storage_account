@@ -3,7 +3,8 @@ on:
   workflow_dispatch:
 jobs:
   my_first_job:
+    name: test job
     runs-on: self-hosted
     steps:
       - name: Display the path
-        run: echo "Hello World"
+        run: echo Hello World
