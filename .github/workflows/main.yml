@@ -5,7 +5,7 @@ on:
 
 jobs:
   my_first_job:
-    runs_on: 
+    runs_on: apna_laptop
     steps:
       - name: Display the path
         run: echo "Hello World"
