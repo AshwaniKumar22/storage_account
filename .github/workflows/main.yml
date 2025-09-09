@@ -1,8 +1,6 @@
 name: pehle_workflow
-
 on:
   workflow_dispatch:
-
 jobs:
   my_first_job:
     runs_on: self-hosted
