@@ -1,6 +1,6 @@
 name: pehle_workflow
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -8,5 +8,4 @@ jobs:
     runs_on: 
     steps:
       - name: Display the path
-        shell: cmd
-        run: echo "hello world"
+        run: echo "Hello World"
