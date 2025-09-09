@@ -4,6 +4,7 @@ on: workflow_dispatch
 
 jobs:
   my_first_job:
+    runs_on: 
     steps:
       - name: Display the path
         shell: cmd
