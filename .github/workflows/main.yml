@@ -6,6 +6,30 @@ jobs:
     name: test job
     runs-on: self-hosted
     steps:
-      - name: Display the path
-        shell: cmd
-        run: echo Hello World
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: 0be12465-af3e-4bff-9431-9c92504c9aa1
+          tenant-id: cb139084-0e90-46f4-9031-8067a8f29787
+          subscription-id: 16648c27-24de-48bf-b2d6-cc829eea5412
+          
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+      
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+      
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false
+        continue-on-error: true
