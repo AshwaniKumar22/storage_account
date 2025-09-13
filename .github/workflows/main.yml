@@ -1,4 +1,4 @@
-name: pehle_workflow
+name: dev_tf_workflow
 on:
   workflow_dispatch:
 permissions:
@@ -22,6 +22,7 @@ jobs:
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
+        working-directory: ../main.tf
         continue-on-error: true
       
       - name: Terraform Init
