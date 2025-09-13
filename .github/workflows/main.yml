@@ -1,6 +1,9 @@
 name: pehle_workflow
 on:
   workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
 jobs:
   my_first_job:
     name: test job
